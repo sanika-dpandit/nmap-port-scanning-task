@@ -52,3 +52,20 @@ This knowledge is essential not only for ethical hackers performing red teaming 
 
 Real-World Relevance:
 Understanding how attackers modify scans to bypass detection helps security professionals design better defensive strategies and alert rules in security monitoring tools.
+
+## Interview Q&A Summary
+Open ports are essentially communication endpoints that accept connections from external sources. While they are necessary for services like web servers or databases, they can also become security risks if misconfigured or exposed unnecessarily. This is why understanding how port scanning tools like Nmap work is critical.
+
+Nmap’s TCP SYN scan technique works by sending a SYN (synchronize) packet to a target port. If the port is open, the host replies with a SYN-ACK, indicating it's ready to establish a connection. Rather than completing the handshake, Nmap immediately sends a reset (RST) packet, making the scan stealthy and less likely to be logged compared to a full TCP connection.
+
+The presence of open ports can expose a system to various threats. For example, attackers may exploit services running on those ports or use them as a foothold to move laterally within a network. Therefore, it's crucial to close unnecessary ports, restrict access using firewalls, and regularly audit services.
+
+TCP scanning is generally more reliable than UDP scanning because TCP includes connection responses that confirm port status. In contrast, UDP is connectionless and doesn’t guarantee a response, making results harder to interpret and increasing the chance of false negatives. Both types of scans are valuable in different contexts.
+
+To secure open ports, administrators should disable unused services, configure firewalls to limit exposure, and enable intrusion detection systems to monitor suspicious traffic. Regular patching and access controls also help minimize risk.
+
+Firewalls play a key role in network security by filtering traffic based on rules, allowing or denying connections to specific ports. They help enforce the principle of least privilege and reduce the network’s attack surface.
+
+Port scanning itself is a reconnaissance technique used by attackers to discover vulnerable services. By identifying which ports are open and which services are running, attackers can tailor their strategies to exploit known vulnerabilities. Ethical hackers and defenders use the same technique to strengthen security by identifying and mitigating risks early.
+
+Wireshark complements port scanning by allowing analysts to inspect packet-level traffic in real time. During a scan, it can confirm whether SYN, SYN-ACK, and RST packets were exchanged as expected, verify scan timing, and detect whether a system is silently dropping or responding to probe attempts. This makes Wireshark invaluable for validating scan results and understanding network behavior at a granular level.

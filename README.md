@@ -39,3 +39,16 @@ Wireshark Analysis
 Captured TCP SYN packets (filtered using `tcp.flags.syn == 1 && tcp.flags.ack == 0`) showed the scanner sending connection attempts to various IPs and ports.
 This confirms the behavior of a typical TCP SYN scan, where the scanner sends SYN packets and waits for SYN-ACK responses.
 
+--Beyond the Basics: Stealth Scanning and Intrusion Detection Evasion
+While TCP SYN scanning (-sS) is a popular method due to its speed and relatively stealthy nature (as it doesn't complete the TCP handshake), it can still be detected by modern Intrusion Detection Systems (IDS) and firewalls. To evade such detection, attackers may use fragmented packets, decoy scans, or timing variations (slow scans). Nmap supports advanced evasion options such as:
+
+-f for fragmenting packets,
+
+--scan-delay to slow down scans,
+
+-D to generate decoy IPs.
+
+This knowledge is essential not only for ethical hackers performing red teaming but also for defenders configuring IDS tools like Snort or Suricata to detect and respond to stealthy port scans.
+
+Real-World Relevance:
+Understanding how attackers modify scans to bypass detection helps security professionals design better defensive strategies and alert rules in security monitoring tools.
